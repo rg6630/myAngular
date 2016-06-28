@@ -1,4 +1,4 @@
-// Generated on 2016-06-24 using generator-angular 0.15.1
+// Generated on 2015-12-23 using generator-angular 0.14.0
 'use strict';
 
 // # Globbing
@@ -224,7 +224,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -371,7 +371,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'myAngularApp',
+          module: 'angularized',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -414,18 +414,20 @@ module.exports = function (grunt) {
             '*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
+
           ]
         }, {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }, {
-          expand: true,
-          cwd: '.',
-          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          dest: '<%= yeoman.dist %>'
-        }]
+        },
+		{
+        expand: true,
+        src: 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
+        dest: '<%= yeoman.dist %>',
+        cwd: '.'
+    }]
       },
       styles: {
         expand: true,
