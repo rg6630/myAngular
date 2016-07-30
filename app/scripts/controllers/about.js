@@ -8,10 +8,10 @@
  * Controller of the myAngularApp
  */
 angular.module('myAngularApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('AboutCtrl', ['$scope', 'cityService', function ($scope, cityService) {
+  	$scope.city = cityService.city; 
+
+  	$scope.$watch('city', function(){
+  		cityService.city = $scope.city;
+  	});
+  }]);
